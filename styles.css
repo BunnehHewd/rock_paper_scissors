@@ -1,0 +1,51 @@
+* {
+    margin: 0 auto;
+}
+
+body {
+    background-color: #333652;
+}
+
+h1 {
+    text-align: center;
+    color: #FAD02C;
+    padding: 20px 0;
+    font-family: Helvetica, sans-serif;
+    font-weight: 900;
+    font-size: 60px;
+}
+
+section, p {
+    text-align: center;
+    color: #90ADC6;
+    font-family: 'Cormorant Garamond', serif;
+    margin-bottom: 30px;
+}
+
+h3 {
+    padding: 10px 0;
+}
+
+.game, .rock, .paper, .scissors{
+    display: flex;
+}
+
+.game {
+    width: 80%;
+}
+
+.rock, .paper, .scissors {
+    flex-direction: column;
+    justify-content: center;
+    gap:10px;
+}
+
+img {
+    height: 150px;
+    filter: drop-shadow(7px 2px 4px #fad02c);   
+}
+
+p {
+    font-size: 24px;
+    letter-spacing: 5px;
+}
