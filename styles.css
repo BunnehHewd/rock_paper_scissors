@@ -26,7 +26,7 @@ h3 {
     padding: 10px 0;
 }
 
-.game, .rock, .paper, .scissors{
+.game, .rock, .paper, .scissors, .output{
     display: flex;
 }
 

@@ -1,4 +1,58 @@
-let playerScore = 0;
+real = document.querySelector('.real');
+ 
+const player = document.createElement('p');
+player.textContent = 'Player Selected: ';
+real.appendChild(player);
+ 
+fake = document.querySelector('.fake');
+
+comp = document.createElement('p');
+comp.textContent = 'Computer Selected: ';
+fake.appendChild(comp);
+
+let playerChoice = document.createElement('p');
+let compChoice = document.createElement('p');
+
+ //Grabs elements by ID, displays player choice
+const rock = document.getElementById('Rock').onclick = function rockSel() {
+    playerChoice.textContent = 'Rock';
+    real.appendChild(playerChoice);
+    
+}
+const paper = document.getElementById('Paper').onclick = function rockSel() {
+    playerChoice.textContent = 'Paper';
+    real.appendChild(playerChoice);
+}
+const scissors = document.getElementById('Scissors').onclick = function rockSel() {
+    playerChoice.textContent = 'Scissors';
+    real.appendChild(playerChoice);
+}
+
+
+function compPlay(e) {
+ for (let i = 0; i < 5; i++) {
+    // Comp Selector
+    function getComputerChoice() {
+    let choices = ['Rock', 'Paper', 'Scissors'];
+    return choices[Math.floor(Math.random() * choices.length)];
+}
+
+compChoice.textContent = getComputerChoice()
+fake.appendChild(compChoice);   
+}
+
+
+}
+
+
+let game = document.querySelector('.game');
+game.addEventListener('click', compPlay )
+
+
+
+
+
+/*let playerScore = 0;
 let compScore= 0;
 let player = "";
 
@@ -19,6 +73,8 @@ function getComputerChoice() {
             let choices = ['Rock', 'Paper', 'Scissors'];
             return choices[Math.floor(Math.random() * choices.lenth)];
         }
+
+
 
 function playRound(playerSelection, computerSelection) {
             if((playerSelection == "Rock" && computerSelection == "Scissors") ||
@@ -53,4 +109,4 @@ function game() {
 
 }
  
-game();
+game(); */
