@@ -1,52 +1,61 @@
-real = document.querySelector('.real');
- 
-const player = document.createElement('p');
-player.textContent = 'Player Selected: ';
-real.appendChild(player);
- 
-fake = document.querySelector('.fake');
+let playScore = 0;
+let compScore = 0;
 
-comp = document.createElement('p');
-comp.textContent = 'Computer Selected: ';
-fake.appendChild(comp);
+// Grabs to show player/comp selections
+pSelect = document.querySelector('.pSelect');
+cSelect = document.querySelector('.cSelect');
 
-let playerChoice = document.createElement('p');
-let compChoice = document.createElement('p');
-
- //Grabs elements by ID, displays player choice
+//Grabs elements by ID, displays player choice
 const rock = document.getElementById('Rock').onclick = function rockSel() {
-    playerChoice.textContent = 'Rock';
-    real.appendChild(playerChoice);
-    
+    pSelect.textContent = 'Rock';
+    document.querySelector('.output').style.visibility = "visible";
 }
 const paper = document.getElementById('Paper').onclick = function rockSel() {
-    playerChoice.textContent = 'Paper';
-    real.appendChild(playerChoice);
+    pSelect.textContent = 'Paper';
+    document.querySelector('.output').style.visibility = "visible";
 }
 const scissors = document.getElementById('Scissors').onclick = function rockSel() {
-    playerChoice.textContent = 'Scissors';
-    real.appendChild(playerChoice);
+    pSelect.textContent = 'Scissors';
+    document.querySelector('.output').style.visibility = "visible";
 }
 
-
-function compPlay(e) {
- for (let i = 0; i < 5; i++) {
-    // Comp Selector
+// Comp selection generator
+function compPlay() {
     function getComputerChoice() {
-    let choices = ['Rock', 'Paper', 'Scissors'];
-    return choices[Math.floor(Math.random() * choices.length)];
+        let choices = ['Rock', 'Paper', 'Scissors'];
+        return choices[Math.floor(Math.random() * choices.length)];
+    }
+    cSelect.textContent = getComputerChoice();
 }
 
-compChoice.textContent = getComputerChoice()
-fake.appendChild(compChoice);   
+statement = document.querySelector('.statement');
+pScore = document.querySelector('.ps');
+cScore = document.querySelector('.cs');
+
+function playRound() {
+    compPlay();
+    if ((pSelect.textContent == 'Rock' && cSelect.textContent == 'Scissors') ||
+        (pSelect.textContent == 'Paper' && cSelect.textContent == 'Rock') ||
+        (pSelect.textContent == 'Scissors' && cSelect.textContent == 'Paper')) {
+        statement.textContent = "Player Wins!";
+        playScore++;
+        pScore.innerText = playScore;
+        
+    } else if (pSelect.textContent == cSelect.textContent) {
+        statement.textContent = "TIE!";
+    } else {
+        statement.textContent = "Computer Wins!";
+        compScore++;
+        cScore.textContent = compScore;
+    }
 }
 
-
-}
 
 
 let game = document.querySelector('.game');
-game.addEventListener('click', compPlay )
+
+game.addEventListener('click', playRound);
+
 
 
 
@@ -57,29 +66,13 @@ let compScore= 0;
 let player = "";
 
 
-document.getElementById("Rock").onclick = function rockSel() {
-            player = "Rock";
-        }
-        
-document.getElementById('paper').onclick = function paperSel() {
-            player = "Paper";
-        }
-        
-document.getElementById('scissors').onclick = function scissorsSel() {
-            player = "Scissors";
-        }
-
-function getComputerChoice() {
-            let choices = ['Rock', 'Paper', 'Scissors'];
-            return choices[Math.floor(Math.random() * choices.lenth)];
-        }
 
 
 
 function playRound(playerSelection, computerSelection) {
-            if((playerSelection == "Rock" && computerSelection == "Scissors") ||
-                (playerSelection == "Paper" && computerSelection == "Rock") ||
-                (playerSelection == "Scissors" && computerSelection == "Paper")) {
+            if((playerChoice == "Rock" && compChoice == "Scissors") ||
+                (playerChoice == "Paper" && compChoice == "Rock") ||
+                (playerChoice == "Scissors" && compChoice == "Paper")) {
                     console.log("Player Wins!");
                     playerScore++;
                 } 

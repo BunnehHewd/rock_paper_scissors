@@ -6,12 +6,15 @@ body {
     background-color: #333652;
 }
 
-h1 {
+h1, h4 {
     text-align: center;
     color: #FAD02C;
     padding: 20px 0;
     font-family: Helvetica, sans-serif;
-    font-weight: 900;
+    font-weight: 900;   
+}
+
+h1{
     font-size: 60px;
 }
 
@@ -26,8 +29,9 @@ h3 {
     padding: 10px 0;
 }
 
-.game, .rock, .paper, .scissors, .output{
+.game, .rock, .paper, .scissors, .output, .tally{
     display: flex;
+    flex-wrap: wrap;
 }
 
 .game {
@@ -38,6 +42,7 @@ h3 {
     flex-direction: column;
     justify-content: center;
     gap:10px;
+    width: 30%;
 }
 
 img {
@@ -45,7 +50,39 @@ img {
     filter: drop-shadow(7px 2px 4px #fad02c);   
 }
 
+img:hover {
+    filter: drop-shadow(7px 2px 4px #90ad90);   
+}
+
 p {
     font-size: 24px;
     letter-spacing: 5px;
+}
+
+.output {
+    font-weight: 800;
+    flex-wrap: wrap;
+    visibility: hidden;
+    width: 75%;
+}
+
+.statement {
+    display: block;
+    color:#fad02c;
+    width: 100%;
+    font-size: 28px;
+}
+
+.score {
+    font-size: 24px;
+    flex-basis: 50%;
+}
+
+h4 {
+    width: 100%;
+}
+
+.tally > p {
+    font-size: 18px;
+    width: 35%;
 }
