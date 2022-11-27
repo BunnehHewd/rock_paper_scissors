@@ -8,15 +8,15 @@ cSelect = document.querySelector('.cSelect');
 //Grabs elements by ID, displays player choice
 const rock = document.getElementById('Rock').onclick = function rockSel() {
     pSelect.textContent = 'Rock';
-    document.querySelector('.output').style.visibility = "visible";
+    document.querySelector('.output').style.display = "flex";
 }
 const paper = document.getElementById('Paper').onclick = function rockSel() {
     pSelect.textContent = 'Paper';
-    document.querySelector('.output').style.visibility = "visible";
+    document.querySelector('.output').style.display = "flex";
 }
 const scissors = document.getElementById('Scissors').onclick = function rockSel() {
     pSelect.textContent = 'Scissors';
-    document.querySelector('.output').style.visibility = "visible";
+    document.querySelector('.output').style.display = "flex";
 }
 
 // Comp selection generator
@@ -28,6 +28,12 @@ function compPlay() {
     cSelect.textContent = getComputerChoice();
 }
 
+
+//Selection Display
+real = document.querySelector(".real");
+fake = document.querySelector(".fake");
+
+//Scoring
 statement = document.querySelector('.statement');
 pScore = document.querySelector('.ps');
 cScore = document.querySelector('.cs');
@@ -39,8 +45,7 @@ function playRound() {
         (pSelect.textContent == 'Scissors' && cSelect.textContent == 'Paper')) {
         statement.textContent = "Player Wins!";
         playScore++;
-        pScore.innerText = playScore;
-        
+        pScore.innerText = playScore; 
     } else if (pSelect.textContent == cSelect.textContent) {
         statement.textContent = "TIE!";
     } else {
@@ -48,13 +53,31 @@ function playRound() {
         compScore++;
         cScore.textContent = compScore;
     }
+
+
+    if (playScore == 5 || compScore == 5) {
+        hide();
+        if (playScore == 5) {
+            statement.textContent = "PLAYER WINS!!!! WOW!"
+        } else {
+            statement.textContent = "COMPUTER WINS! WHOMP WHOMP"
+        }
+    }
+    
+}
+
+let game = document.querySelector('.game');
+game.addEventListener('click', playRound);
+
+
+function hide() {
+    real.style.display = "none";
+    fake.style.display = "none";
+    game.removeEventListener('click', playRound);
 }
 
 
 
-let game = document.querySelector('.game');
-
-game.addEventListener('click', playRound);
 
 
 

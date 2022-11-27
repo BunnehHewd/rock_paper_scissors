@@ -62,7 +62,7 @@ p {
 .output {
     font-weight: 800;
     flex-wrap: wrap;
-    visibility: hidden;
+    display: none;
     width: 75%;
 }
 
@@ -75,10 +75,7 @@ p {
 
 .score {
     font-size: 24px;
-    flex-basis: 50%;
-}
-
-h4 {
+    display: block;
     width: 100%;
 }
 
